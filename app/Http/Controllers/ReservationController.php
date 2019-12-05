@@ -40,7 +40,7 @@ class ReservationController extends Controller
         $hotel_id = $reservation->room->hotel_id;
         $hotelInfo = Hotel::with('rooms')->get()->find($hotel_id);
 
-        return view('dashboard.reservationSingle', compact('reservation','hotelInfo'));
+        return view('dashboard.reservationSingle', compact('reservation', 'hotelInfo'));
     }
 
     public function edit(Reservation $reservation)
@@ -59,7 +59,7 @@ class ReservationController extends Controller
         $reservation->user_id = 1;
         $reservation->save();
 
-        return redirect('dashboard/reservation')->with('success','Successfully updated your reservation!');
+        return redirect('dashboard/reservations')->with('success','Successfully updated your reservation!');
     }
 
     public function destroy(Reservation $reservation)
@@ -67,6 +67,6 @@ class ReservationController extends Controller
         $reservation = Reservation::find($reservation->id);
         $reservation->delete();
 
-        return redirect('dashboard/reservation')->with('success','Successfully deleted your reservation!');
+        return redirect('dashboard/reservations')->with('success','Successfully deleted your reservation!');
     }
 }
