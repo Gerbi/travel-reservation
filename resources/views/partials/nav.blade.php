@@ -6,7 +6,7 @@
                 <a class="ml-6 text-sm font-medium text-gray-200 no-underline" href="/hotels">Browse Hotels</a>
             </div>
 
-            @if()
+            @if (Route::has('login'))
                 <div class="flex-1 text-right">
                     @auth
                         <a class="no-underline hover:underline text-gray-300 text-sm p-3" href="{{ route('logout') }}">Logout</a>

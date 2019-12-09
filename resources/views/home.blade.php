@@ -8,9 +8,15 @@
     <div class="overlay relative pb-10 sm:pb-0 static w-full bg-cover bg-no-repeat bg-center" style="background-image: url('./img/travel.jfif'); height: 25rem ">
         <div class="container flex justify-start mx-auto h-full items-center pt-24 sm:pt-0">
             <div class="w-auto w-3/4 text-left">
-                <h1 class="text-3xl">Reservation management made easy.</h1>
-                <p class="leading-normal mb-8">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam in quia natus magnam ducimus quas molestias velit vero maiores. Eaque sunt laudantium voluptas. Fugiat molestiae ipsa delectus iusto vel quod.</p>
-                <a href="/login" class="px-4 py-3 bg-green-500 rounded-lg text-white">Sign Up for Access to Thousands of Hotels</a>
+                @if(Auth::user())
+                    <h1 class="text-3xl">Welcome back, {{ Auth::user()->nickname}}!</h1>
+                    <p class="leading-normal mb-8">To your one stop shop for reservation management.</p>
+                    <a href="/dashboard" class="px-4 py-3 bg-green-500 rounded-lg text-white">View your Dashboard</a>
+                @else
+                    <h1 class="text-3xl">Reservation management made easy.</h1>
+                    <p class="leading-normal mb-8">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam in quia natus magnam ducimus quas molestias velit vero maiores. Eaque sunt laudantium voluptas. Fugiat molestiae ipsa delectus iusto vel quod.</p>
+                    <a href="/login" class="px-4 py-3 bg-green-500 rounded-lg text-white">Sign Up for Access to Thousands of Hotels</a>
+                @endif
             </div>
         </div>
     </div>
@@ -42,5 +48,6 @@
                 </div>
             </div>
         </div>
+
     </div>
 @endsection
